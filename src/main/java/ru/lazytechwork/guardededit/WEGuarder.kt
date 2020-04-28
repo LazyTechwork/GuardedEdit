@@ -19,9 +19,12 @@ class WEGuarder(private val weWorld: World, extent: Extent, private val player: 
             this.world = weWorld.world
         else
             this.world = Bukkit.getWorld(weWorld.name)!!
+
+
     }
 
     override fun <T : BlockStateHolder<T>?> setBlock(location: BlockVector3?, block: T): Boolean {
+        (this.player as LocalPlayer).sendTitle("dubug", "${location?.x} ${location?.y} ${location?.z}")
         val regions = WorldGuard.getInstance().platform.regionContainer.get(weWorld)?.getApplicableRegions(location)
         return if (player.hasPermission("guardededit.guardpass") || regions!!.isMemberOfAll(this.player as LocalPlayer))
             super.setBlock(location, block)
