@@ -19,8 +19,6 @@ class WEGuarder(private val weWorld: World, extent: Extent, private val player: 
             this.world = weWorld.world
         else
             this.world = Bukkit.getWorld(weWorld.name)!!
-
-
     }
 
     override fun <T : BlockStateHolder<T>?> setBlock(location: BlockVector3?, block: T): Boolean {

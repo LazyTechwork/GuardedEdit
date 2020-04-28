@@ -104,10 +104,6 @@
             <id>sk89q-repo</id>
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
-        <repository>
-            <id>github-asyncworldedit-api</id>
-            <url>https://raw.githubusercontent.com/SBPrime/AsyncWorldEdit/maven-artifact/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -154,9 +150,10 @@
         </dependency>
         <dependency>
             <groupId>org.primesoft.asyncworldedit</groupId>
-            <artifactId>AsyncWorldEdit-API</artifactId>
-            <version>[2.2.0-rc-01, 2.2.0)</version>
-            <scope>provided</scope>
+            <artifactId>AsyncWorldEdit</artifactId>
+            <version>3.6.19</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/AsyncWorldEdit-3.6.19.jar</systemPath>
             <type>jar</type>
         </dependency>
     </dependencies>

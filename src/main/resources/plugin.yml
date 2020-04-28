@@ -3,6 +3,7 @@ version: ${project.version}
 main: ru.lazytechwork.guardededit.GuardedEdit
 api-version: 1.13
 depend: [WorldEdit, WorldGuard]
+softdepend: [AsyncWorldEdit]
 authors: [LazyTechwork]
 description: Prevent players from WorldEdit in guarded regions
 permissions:
