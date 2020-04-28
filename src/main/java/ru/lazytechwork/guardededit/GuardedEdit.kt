@@ -1,17 +1,21 @@
-package ru.lazytechwork.guardededit;
+package ru.lazytechwork.guardededit
 
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Bukkit
+import org.bukkit.plugin.java.JavaPlugin
 
-public final class GuardedEdit extends JavaPlugin {
+class GuardedEdit : JavaPlugin() {
 
-    @Override
-    public void onEnable() {
-        // Plugin startup logic
-
+    companion object {
+        var instance: GuardedEdit? = null
+        private set;
     }
 
-    @Override
-    public void onDisable() {
+    override fun onEnable() {
+        Bukkit.getLogger().info("Guarded Edit successfully loaded")
+        instance = this
+    }
+
+    override fun onDisable() {
         // Plugin shutdown logic
     }
 }
