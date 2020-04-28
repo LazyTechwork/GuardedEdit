@@ -5,3 +5,7 @@ api-version: 1.13
 depend: [WorldEdit, WorldGuard]
 authors: [LazyTechwork]
 description: Prevent players from WorldEdit in guarded regions
+permissions:
+  guardededit.guardpass:
+    description: Don't prevent player to use WorldEdit commands without access to region
+    default: false
