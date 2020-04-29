@@ -9,6 +9,6 @@ class WEListener {
     @Subscribe
     fun onEditSessionChange(ev: EditSessionEvent) {
         if (ev.stage == EditSession.Stage.BEFORE_CHANGE)
-            ev.extent = WEGuarder(extent = ev.extent, player = ev.actor as Player, weWorld = ev.world!!)
+            ev.extent = WEGuarder(extent = ev.extent, actor = ev.actor!!, weWorld = ev.world!!)
     }
 }
