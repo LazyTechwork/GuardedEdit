@@ -1,14 +1,15 @@
 package ru.lazytechwork.guardededit
 
-import com.sk89q.worldedit.EditSession
-import com.sk89q.worldedit.entity.Player
 import com.sk89q.worldedit.event.extent.EditSessionEvent
+import com.sk89q.worldedit.extension.platform.Actor
 import com.sk89q.worldedit.util.eventbus.Subscribe
 
 class WEListener {
     @Subscribe
     fun onEditSessionChange(ev: EditSessionEvent) {
-        if (ev.stage == EditSession.Stage.BEFORE_CHANGE)
+        val actor: Actor? = ev.actor
+        if (actor != null && actor.isPlayer) {
             ev.extent = WEGuarder(extent = ev.extent, actor = ev.actor!!, weWorld = ev.world!!)
+        }
     }
 }

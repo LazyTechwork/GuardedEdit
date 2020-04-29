@@ -15,7 +15,7 @@ class GuardedEdit : JavaPlugin() {
     override fun onEnable() {
         Bukkit.getLogger().info("Guarded Edit successfully loaded")
         instance = this
-        if (this.server.pluginManager.getPlugin("AsyncWorldEdit") !== null)
+        if (this.server.pluginManager.isPluginEnabled("AwyncWorldEdit"))
             AsyncWorldEditMain.getInstance().worldEditIntegrator.we.eventBus.register(WEListener())
         else
             WorldEdit.getInstance().eventBus.register(WEListener())
