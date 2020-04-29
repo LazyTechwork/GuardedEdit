@@ -1,6 +1,8 @@
 package ru.lazytechwork.guardededit
 
+import com.sk89q.worldedit.bukkit.BukkitPlayer
 import com.sk89q.worldedit.bukkit.BukkitWorld
+import com.sk89q.worldedit.entity.Player
 import com.sk89q.worldedit.extension.platform.Actor
 import com.sk89q.worldedit.extent.AbstractDelegateExtent
 import com.sk89q.worldedit.extent.Extent
@@ -10,7 +12,6 @@ import com.sk89q.worldedit.world.block.BlockStateHolder
 import com.sk89q.worldguard.LocalPlayer
 import com.sk89q.worldguard.WorldGuard
 import org.bukkit.Bukkit
-import org.bukkit.entity.Player
 
 class WEGuarder(private val weWorld: World, extent: Extent, private val actor: Actor) : AbstractDelegateExtent(extent) {
     private var world: org.bukkit.World
@@ -29,7 +30,7 @@ class WEGuarder(private val weWorld: World, extent: Extent, private val actor: A
     }
 
     override fun <T : BlockStateHolder<T>?> setBlock(location: BlockVector3?, block: T): Boolean {
-        this.player.sendMessage("${location?.x} ${location?.y} ${location?.z}")
+        GuardedEdit.instance!!.logger.info("${location?.x} ${location?.y} ${location?.z}")
 //        sendTitle("debug", )
         val regions = WorldGuard.getInstance().platform.regionContainer.get(weWorld)?.getApplicableRegions(location)
         return if (player.hasPermission("guardededit.guardpass") || regions!!.isMemberOfAll(wgPlayer))
