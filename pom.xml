@@ -148,13 +148,5 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.primesoft.asyncworldedit</groupId>
-            <artifactId>AsyncWorldEdit</artifactId>
-            <version>3.6.19</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/AsyncWorldEdit-3.6.19.jar</systemPath>
-            <type>jar</type>
-        </dependency>
     </dependencies>
 </project>
