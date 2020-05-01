@@ -15,8 +15,8 @@ import org.bukkit.Bukkit
 
 class WEGuarder(private val weWorld: World, extent: Extent, private val actor: Actor) : AbstractDelegateExtent(extent) {
     private var world: org.bukkit.World
-    private var wgPlayer: LocalPlayer
     private var player: Player
+    private var wgPlayer: LocalPlayer
 
     init {
         if (weWorld is BukkitWorld)
@@ -25,8 +25,7 @@ class WEGuarder(private val weWorld: World, extent: Extent, private val actor: A
             this.world = Bukkit.getWorld(weWorld.name)!!
 
         this.player = actor as Player
-
-        wgPlayer = WorldGuard.getInstance().checkPlayer(this.actor)
+        this.wgPlayer = WorldGuard.getInstance().checkPlayer(actor)
     }
 
     override fun <T : BlockStateHolder<T>?> setBlock(location: BlockVector3?, block: T): Boolean {
