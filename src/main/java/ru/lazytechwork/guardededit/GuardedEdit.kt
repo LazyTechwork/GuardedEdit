@@ -3,7 +3,6 @@ package ru.lazytechwork.guardededit
 import com.sk89q.worldedit.WorldEdit
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
-import org.primesoft.asyncworldedit.AsyncWorldEditMain
 
 class GuardedEdit : JavaPlugin() {
 
@@ -15,10 +14,7 @@ class GuardedEdit : JavaPlugin() {
     override fun onEnable() {
         Bukkit.getLogger().info("Guarded Edit successfully loaded")
         instance = this
-        if (this.server.pluginManager.isPluginEnabled("AwyncWorldEdit"))
-            AsyncWorldEditMain.getInstance().worldEditIntegrator.we.eventBus.register(WEListener())
-        else
-            WorldEdit.getInstance().eventBus.register(WEListener())
+        WorldEdit.getInstance().eventBus.register(WEListener())
     }
 
     override fun onDisable() {
