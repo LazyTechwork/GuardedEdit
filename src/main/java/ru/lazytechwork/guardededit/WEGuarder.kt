@@ -29,8 +29,7 @@ class WEGuarder(private val weWorld: World, extent: Extent, private val actor: A
     }
 
     override fun <T : BlockStateHolder<T>?> setBlock(location: BlockVector3?, block: T): Boolean {
-        GuardedEdit.instance!!.logger.info("${location?.x} ${location?.y} ${location?.z}")
-//        sendTitle("debug", )
+//        GuardedEdit.instance!!.logger.info("${location?.x} ${location?.y} ${location?.z}")
         val regions = WorldGuard.getInstance().platform.regionContainer.get(weWorld)?.getApplicableRegions(location)
         return if (player.hasPermission("guardededit.guardpass") || regions!!.isMemberOfAll(wgPlayer))
             super.setBlock(location, block)
